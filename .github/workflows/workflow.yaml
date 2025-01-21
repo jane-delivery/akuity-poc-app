@@ -8,6 +8,7 @@ on:
         default: 'patch'
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,9 +50,6 @@ jobs:
           push: true
           provenance: false
           tags: ${{ steps.meta.outputs.tags }}
-          build-args: |
-            BUNDLE_ENTERPRISE__CONTRIBSYS__COM=${{ secrets.SIDEKIQ_ENTERPRISE_GEM_CREDS }}
-            BUNDLE_RUBYGEMS__PKG__GITHUB__COM=${{ secrets.GITHUB_TOKEN }}
           labels: |
             ${{ steps.meta.outputs.labels }}
             app.jane.commit.user=${{ github.actor }}
