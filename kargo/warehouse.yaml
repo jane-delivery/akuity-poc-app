@@ -1,0 +1,10 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Warehouse
+metadata:
+  name: akuity-poc-app
+  namespace: kargo-simple
+spec:
+  subscriptions:
+  - image:
+      repoURL: ghcr.io/jane-delivery/akuity-poc-app
+      tagSelectionStrategy: semver
